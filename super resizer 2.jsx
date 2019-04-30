@@ -1,4 +1,4 @@
-﻿var doc = app.activeDocument;  
+var doc = app.activeDocument;  
 //var Path = 'C:/Users/photoshop/Desktop/final renders/dump/';  
 var Path = 'C:/Users/kloeb/Downloads/PhotoshopResizer-master';
 var Name = doc.name.replace(/\.[^\.]+$/, '');   
@@ -17,7 +17,7 @@ var fHeiight=  imgNameHeight;
 
 
 
-var fSize = (UnitValue(fWidth,"in")) ===( UnitValue(fHeiight,"in")) ?
+var fSize = (UnitValue(fWidth,"in")) >=( UnitValue(fHeiight,"in")) ?
 
 fSize = 1 :  fSize = 0;
 
@@ -26,17 +26,15 @@ var iWidth = app.activeDocument.width;
 var iHeight = app.activeDocument.height;
 
 
-var iSize = (UnitValue(iWidth,"in")) ===( UnitValue(iHeight,"in")) ?
+var iSize = (UnitValue(iWidth,"in")) >=( UnitValue(iHeight,"in")) ?
 
 iSize = 1 :  iSize = 0;
 
-if (fSize = iSize){
+if (fSize === iSize){
 
-//var fWidth= parseInt (imgName);
 doc.resizeImage(UnitValue(fWidth,"in"), UnitValue(fHeiight,"in"),null,ResampleMethod.BICUBIC);
-//imgName = imgName.substr(10, imgName.length -0);
-}
-else{
+
+} else {
 
 doc.resizeImage(UnitValue(fHeiight,"in"), UnitValue(fWidth,"in"),null,ResampleMethod.BICUBIC);}
 
